@@ -31,6 +31,11 @@ export class TasksService {
     this.tasks = this.tasks.filter(task => task.Id !== Id)
   }
 
+  updateTaskStatus(Id: string, status: TaskStatus ):Task{
+    let taskUpdated: Task;
+    this.tasks = this.tasks.map(task => task.Id === Id ? taskUpdated = {...task, status} : task)
+    return taskUpdated;
+  }
 
 
 }
