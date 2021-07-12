@@ -50,13 +50,14 @@ export class TasksService {
   getTaskById(Id: string): Task{
     const found =  this.tasks.find(task => task.Id === Id)
     if(!found){
-      throw new NotFoundException(`Task with Id ${Id} not`);
+      throw new NotFoundException(`Task with Id ${Id} not found`);
     }
     return found;
   }
 
   deleteTask(Id:string):void{
-    this.tasks = this.tasks.filter(task => task.Id !== Id)
+    const found = this.getTaskById(Id);
+    this.tasks = this.tasks.filter(task => task.Id !== found.Id)
   }
 
   updateTaskStatus(Id: string, status: TaskStatus ):Task{
