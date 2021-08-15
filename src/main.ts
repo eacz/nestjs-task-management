@@ -11,7 +11,8 @@ async function bootstrap() {
   //to enable validation pipes globally
   app.useGlobalPipes(new ValidationPipe())
   app.useGlobalInterceptors(new TransformInterceptor())
-  await app.listen(4000);
-  logger.log('Applicatiom running on port 4000')
+  await app.listen(process.env.PORT);
+  
+  logger.log(`Application running on port ${process.env.PORT}`)
 }
 bootstrap();
