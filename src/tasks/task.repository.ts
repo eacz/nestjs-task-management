@@ -3,7 +3,7 @@ import { Task } from "./task.entity";
 import { CreateTaskDTO } from './dto/create-task.dto';
 import { TaskStatus } from "./task-status.enum";
 import { getTasksFilterDto } from './dto/get-tasks-filter.dto';
-import { User } from "src/auth/user.entity";
+import { User } from "../auth/user.entity";
 import { Logger, InternalServerErrorException } from '@nestjs/common';
 
 @EntityRepository(Task)
